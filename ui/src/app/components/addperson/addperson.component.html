@@ -1,0 +1,35 @@
+<div>
+  <form [formGroup]="form" (submit)="addPerson()">
+    <h2 class="text-info">
+      <span *ngIf="!personId">Add Person</span>
+      <span *ngIf="personId">Update Person Info
+        <a href="persons" class="pull-right">Back</a>
+      </span>
+    </h2>
+    <hr/>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" name="name" formControlName="name" id="name">
+    </div>
+    <div class="form-group">
+      <div class="radio-inline">
+        <label><input type="radio" formControlName="gender" value="male" name="gender">Male</label>
+      </div>
+      <div class="radio-inline">
+        <label><input type="radio" formControlName="gender" value="female" name="gender">Female</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="number" formControlName="age" name="age" class="form-control" id="age">
+    </div>
+    <div class="form-group">
+      <label for="mobileNumber">Mobile Number:</label>
+      <input type="text" formControlName="mobileNumber" name="mobileNumber" class="form-control" id="mobileNumber">
+    </div>
+    <button type="submit" class="btn btn-md btn-primary">
+      <span *ngIf="!personId">Add Person</span>
+      <span *ngIf="personId">Update Person Info</span>      
+    </button>
+  </form>
+</div>

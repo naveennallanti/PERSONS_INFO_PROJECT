@@ -1,0 +1,31 @@
+<div class="card">
+    <h4 class="text-danger" *ngIf="showMsg">{{ msg }}</h4>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Mobile Number</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="noData">
+          <tr colspan="4" >
+            <h4 class="text-center">No Persons In Db.</h4>
+          </tr>
+        </tbody>
+        <tbody *ngIf="!noData">
+            <tr *ngFor="let person of persons">
+                <td>{{ person.name }}</td>
+                <td>{{ person.gender }}</td>
+                <td>{{ person.age }}</td>
+                <td>{{ person.mobileNumber }}</td>
+                <td>
+                    <button class="btn btn-md btn-info" (click)="editPerson(person)">Edit</button>&nbsp;&nbsp;
+                    <button class="btn btn-md btn-danger" (click)="deletePerson(person)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+</div>
